@@ -1,31 +1,50 @@
-<h1>Event Planning Page!!</h1>
+<h1>Event Planning Page</h1>
 <p>Find me in app/views/events/eventer.html.erb</p>
 
 <%= form_for @event, :url => {:action => :plan} do |f| %>
+ 
+	<div class="bs-docs-section">
+ 
+		<div class="row">
+		 <div class="col-lg-6">
+			<div class="well bs-component">
+				<form class="from-horizontal">	
+					<fieldset>
 
-  <div class="field">
-    <%= f.label :e_name, "EVENT 名前" %>
-    <%= f.text_field :e_name %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :e_key, "EVENT KEY " %>
-    <%= f.text_field :e_key %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :e_detail, "DETAIL    " %>
-    <%= f.text_area :e_detail, :cols => 35, :rows=> 8  %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :e_location, "LOCATION  " %>
-    <%= f.text_field :e_location %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit "MAKE EVENT!!" %>
-  </div>
+						<div class="form-group">
+							<div class="col-lg-10">
+						    <%= f.label :e_name, "EVENT Name" %>
+						    <%= f.text_field :e_name %>
+						 </div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-10">
+  				  <%= f.label :e_key, "EVENT KEY " %>
+ 					  <%= f.text_field :e_key %>
+				 		 </div>
+						</div>
+ 					 <div class="form-group">
+						 <div class="col-lg-10">
+    					<%= f.label :e_detail, "DETAIL    " %>
+   						<%= f.text_area :e_detail, :cols => 35, :rows=> 8  %>
+ 						 </div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-10">
+    					<%= f.label :e_location, "LOCATION  " %>
+    					<%= f.text_field :e_location %>
+  					</div>
+					</div>
+  <div class="form-group">
+		<div class="col-lg-10" "col-lg-offset-2">
+			<button type="reset" class="btn btn-default">Reset</button>
+			<button type="submit" class="btn btn-primary">Make Event</button>
+  	</div>
+	</div>
+</div>
+
+	<div class="form-group">
+		<p class="bs-component">
+			<a href="/home/items" class="btn btn-warning">ITEMS PAGE</a>
 <% end %>
 <br>
-<input type="button" onclick="location.href='/home/items'"value="ITEMS PAGE">
