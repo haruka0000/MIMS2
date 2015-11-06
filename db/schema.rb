@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20151031161703) do
     t.string   "category"
     t.text     "e_key",      null: false
     t.binary   "pic_data"
-    t.integer  "pos_x"
-    t.integer  "pos_y"
+    t.float    "pos_x"
+    t.float    "pos_y"
     t.string   "f_name",     null: false
     t.text     "f_id",       null: false
     t.datetime "f_date"

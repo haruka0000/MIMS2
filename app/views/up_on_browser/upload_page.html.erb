@@ -1,3 +1,4 @@
+<body onload="getLocation()">
 <%= form_for @item, :url => {:action => :create} do |f| %>
 	<h1> Upload Page</h1>
 
@@ -60,5 +61,45 @@
 							</div>
 				</div>
   </div>
+<br>
+  <div class="field">
+      <%= f.hidden_field :pos_x %>  
+  </div>
+<br>
+  <div class="field">
+      <%= f.hidden_field :pos_y %>  
+  </div>
+<br>
 <% end %>
 <br>
+<script>
+function getLocation() {
+  if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+  function(position) {
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+      document.getElementById("item_pos_x").value = lat;
+      document.getElementById("item_pos_y").value = lng;
+   },
+   function(error) {
+      var errorInfo = [
+       "原因不明のエラーが発生しました…。",
+       "位置情報の取得が許可されませんでした…。",
+       "電波状況などで位置情報が取得できませんでした…。",
+       "位置情報の取得に時間がかかり過ぎてタイムアウトしました…。"  
+      ];
+      var errorNo = error.code;
+      var errorMessage = "[エラー番号：" + errorNo + "]\n" + errorInfo[errorNo];
+      alert(errorMessage);
+   },
+   {
+      "enableHighAccuracy": false,
+      "timeout": 8000,
+      "maximumAge": 2000,
+   });
+   } else {
+     alert("Geolocation is not supported by this browser.");
+   }
+}
+</script>
